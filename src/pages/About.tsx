@@ -1,9 +1,16 @@
 // pages/About.tsx
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const About: React.FC = () => {
   return (
-    <div className="page about">
+    <motion.div
+      className="page about"
+      initial={{ x: '100vw' }} // Starts off-screen to the right
+      animate={{ x: 0 }}       // Slides into view
+      exit={{ x: '-100vw' }}   // Slides off-screen to the left when exiting
+      transition={{ duration: 0.5 }} // Sets the duration of the animation
+    >
       <div className="container">
         <div className="page-header">
           <h1>About Progression Digital Ark</h1>
@@ -73,7 +80,7 @@ const About: React.FC = () => {
           </div>
         </section>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

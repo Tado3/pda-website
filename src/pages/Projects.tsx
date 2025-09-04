@@ -1,9 +1,16 @@
 // pages/Projects.tsx
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Projects: React.FC = () => {
   return (
-    <div className="page projects">
+    <motion.div
+      className="page projects"
+      initial={{ x: '100vw' }} // Starts off-screen to the right
+      animate={{ x: 0 }}       // Slides into view
+      exit={{ x: '-100vw' }}   // Slides off-screen to the left when exiting
+      transition={{ duration: 0.5 }} // Sets the duration of the animation
+    >
       <div className="container">
         <div className="page-header">
           <h1>Our Projects & Programs</h1>
@@ -137,7 +144,7 @@ const Projects: React.FC = () => {
           </div>
         </section>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

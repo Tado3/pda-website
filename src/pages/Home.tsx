@@ -1,10 +1,18 @@
 // pages/Home.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion'; // Import motion from framer-motion
 
 const Home: React.FC = () => {
   return (
-    <div className="page home">
+    // Wrap the entire component in a motion.div
+    <motion.div
+      className="page home"
+      initial={{ opacity: 0, y: 20 }} // Start with opacity 0 and slightly below its final position
+      animate={{ opacity: 1, y: 0 }} // Animate to opacity 1 and its original position
+      exit={{ opacity: 0, y: -20 }} // Animate to opacity 0 and slightly above its original position when exiting
+      transition={{ duration: 0.5 }} // Set the duration of the animation
+    >
       {/* Hero Section */}
       <section className="hero">
         <div className="container">
@@ -110,7 +118,7 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
-    </div>
+    </motion.div>
   );
 };
 
