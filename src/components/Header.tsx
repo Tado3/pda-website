@@ -13,6 +13,8 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
       <div className="container">
         <div className="logo">
           <Link to="/" onClick={() => setCurrentPage('home')}>
+            {/* Image added here */}
+            <img src="/image/logo.jpeg" alt="Progression Digital Ark Logo" className="header-logo" />
             <h2>Progression Digital Ark</h2>
             <p>Bridging the Digital Divide</p>
           </Link>
