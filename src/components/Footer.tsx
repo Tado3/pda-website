@@ -1,5 +1,7 @@
 // components/Footer.tsx
 import React from 'react';
+// Import icons from React Icons
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
   return (
@@ -19,10 +21,10 @@ const Footer: React.FC = () => {
           <div className="footer-section">
             <h4>Follow Us</h4>
             <div className="social-links">
-              <a href="#" aria-label="Facebook">Facebook</a>
-              <a href="#" aria-label="Twitter">Twitter</a>
-              <a href="#" aria-label="Instagram">Instagram</a>
-              <a href="#" aria-label="LinkedIn">LinkedIn</a>
+              <a href="https://www.facebook.com/ProgressionDigitalArk" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
+              <a href="https://twitter.com/ProgressionDA" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
+              <a href="https://www.instagram.com/progressiondigitalark" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+              <a href="https://www.linkedin.com/company/progression-digital-ark" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
             </div>
           </div>
         </div>

@@ -16,7 +16,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
             {/* Image added here */}
             <img src="/image/logo.jpeg" alt="Progression Digital Ark Logo" className="header-logo" />
             <h2>Progression Digital Ark</h2>
-            <p>Bridging the Digital Divide</p>
+           
           </Link>
         </div>
         <nav className="navigation">
