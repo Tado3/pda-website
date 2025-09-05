@@ -1,6 +1,5 @@
-// pages/Contact.tsx
 import React, { useState } from 'react';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPaperPlane, FaUser, FaComment } from 'react-icons/fa';
+import { FaPhone, FaMapMarkerAlt, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPaperPlane, FaEnvelope } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Contact: React.FC = () => {
@@ -10,6 +9,7 @@ const Contact: React.FC = () => {
     subject: '',
     message: ''
   });
+  const [submissionMessage, setSubmissionMessage] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -23,7 +23,7 @@ const Contact: React.FC = () => {
     e.preventDefault();
     // Handle form submission here (e.g., send data to a backend)
     console.log('Form submitted:', formData);
-    alert('Thank you for your message. We will get back to you soon!');
+    setSubmissionMessage('Thank you for your message. We will get back to you soon!');
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
@@ -130,7 +130,7 @@ const Contact: React.FC = () => {
                       </div>
                       <div className="contact-text">
                         <h3>Visit Us</h3>
-                        <p>123 Digital Street<br />Harare, Zimbabwe</p>
+                        <p>1st Street<br />Mutare, Zimbabwe</p>
                         <span>Come by for a tour of our facilities</span>
                       </div>
                     </motion.div>
@@ -180,18 +180,12 @@ const Contact: React.FC = () => {
               <motion.div className="contact-form-section" variants={itemVariants}>
                 <div className="form-card">
                   <div className="form-header">
-                    <div className="form-icon">
-                      <FaComment />
-                    </div>
                     <h2>Send Us a Message</h2>
                     <p>Fill out the form below and we'll get back to you as soon as possible</p>
                   </div>
                   
                   <form onSubmit={handleSubmit}>
                     <div className="form-group">
-                      <div className="input-icon">
-                        <FaUser />
-                      </div>
                       <input
                         type="text"
                         id="name"
@@ -204,9 +198,6 @@ const Contact: React.FC = () => {
                     </div>
                     
                     <div className="form-group">
-                      <div className="input-icon">
-                        <FaEnvelope />
-                      </div>
                       <input
                         type="email"
                         id="email"
@@ -219,9 +210,6 @@ const Contact: React.FC = () => {
                     </div>
                     
                     <div className="form-group">
-                      <div className="input-icon">
-                        <FaPaperPlane />
-                      </div>
                       <input
                         type="text"
                         id="subject"
@@ -245,6 +233,12 @@ const Contact: React.FC = () => {
                       ></textarea>
                     </div>
                     
+                    {submissionMessage && (
+                      <div className="submission-message">
+                        {submissionMessage}
+                      </div>
+                    )}
+                    
                     <motion.button 
                       type="submit" 
                       className="btn btn-primary submit-btn"
@@ -263,7 +257,7 @@ const Contact: React.FC = () => {
                 <h2>Find Us Here</h2>
                 <div className="map-container">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3744.33123456789!2d31.053073!3d-17.824858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x193237e6b541d13f%3A0x6b45070f61234567!2sHarare%2C%20Zimbabwe!5e0!3m2!1sen!2szw!4v1699999999999!5m2!1sen!2szw"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3744.33123456789!2d31.053073!3d-17.824858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x193237e6b541d13f%3A0x6b45070f61234567!2sMutare%2C%20Zimbabwe!5e0!3m2!1sen!2szw!4v1699999999999!5m2!1sen!2szw"
                     width="100%"
                     height="400"
                     style={{ border: 0, borderRadius: '8px' }}

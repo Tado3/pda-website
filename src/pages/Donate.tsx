@@ -1,20 +1,71 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Donate: React.FC = () => {
 
+  // Animation variants for the whole page fade-in
+  const pageVariants = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+    transition: { duration: 0.7 }
+  };
+
+  // Variants for staggering the children elements
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  // Variants for individual items fading in from the bottom
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.5 }
+    }
+  };
+
   return (
-    <div className="page donate flex flex-col items-center justify-center p-4 sm:p-8 md:p-12 lg:p-16">
+    <motion.div
+      className="page donate flex flex-col items-center justify-center p-4 sm:p-8 md:p-12 lg:p-16"
+      variants={pageVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+    >
       <div className="container max-w-7xl mx-auto space-y-12">
-        <div className="page-header text-center space-y-4">
+        <motion.div
+          className="page-header text-center space-y-4"
+          variants={itemVariants}
+          initial="hidden"
+          animate="visible"
+        >
           <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl">Support Our Mission</h1>
           <p className="text-lg text-gray-600 sm:text-xl md:text-2xl">Your donation helps bridge the digital divide in rural Zimbabwe</p>
-        </div>
-
-        <div className="donation-content grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
-          <div className="donation-campaigns space-y-8">
+        </motion.div>
+        
+        <motion.div
+          className="donation-content grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.div className="donation-campaigns space-y-8" variants={itemVariants}>
             <h2 className="text-3xl font-bold text-gray-800 border-b-2 pb-2">Current Campaigns</h2>
             
-            <div className="campaign-card bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
+            <motion.div 
+              className="campaign-card bg-white rounded-xl shadow-lg overflow-hidden"
+              whileHover={{ scale: 1.05, y: -5 }}
+              transition={{ type: "spring", stiffness: 300, damping: 10 }}
+            >
               <div className="campaign-image">
                 <img src="/image/hub.png" alt="ICT Hubs Expansion" className="w-full h-auto" />
               </div>
@@ -31,9 +82,13 @@ const Donate: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="campaign-card bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
+            <motion.div 
+              className="campaign-card bg-white rounded-xl shadow-lg overflow-hidden"
+              whileHover={{ scale: 1.05, y: -5 }}
+              transition={{ type: "spring", stiffness: 300, damping: 10 }}
+            >
               <div className="campaign-image">
                 <img src="/image/intel.png" alt="Digital Skills Training" className="w-full h-auto" />
               </div>
@@ -50,10 +105,10 @@ const Donate: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div className="bank-info-section bg-white rounded-xl shadow-lg p-8 h-fit space-y-6">
+          <motion.div className="bank-info-section bg-white rounded-xl shadow-lg p-8 h-fit space-y-6" variants={itemVariants}>
             <h2 className="text-3xl font-bold text-gray-800 border-b-2 pb-2">Donate via Bank Transfer</h2>
             <p className="text-gray-600">
               Your generous contribution is vital to our mission. For direct and secure donations, please use the banking details provided below. This method is our most preferred as it minimizes processing fees and ensures your full donation goes toward our initiatives.
@@ -88,32 +143,55 @@ const Donate: React.FC = () => {
             <p className="text-sm text-gray-500 mt-4">
               Please include "Donation" and your name or a reference in the payment description to help us track your contribution.
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="impact-statement text-center pt-8">
+        <motion.div 
+          className="impact-statement text-center pt-8"
+          variants={itemVariants}
+        >
           <h2 className="text-3xl font-bold text-gray-800 border-b-2 pb-2">Your Donation Makes an Impact</h2>
           <div className="impact-grid mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="impact-item bg-white rounded-lg shadow-md p-6 transform transition duration-500 hover:scale-105">
+            <motion.div 
+              className="impact-item bg-white rounded-lg shadow-md p-6" 
+              whileHover={{ scale: 1.05 }} 
+              transition={{ type: "spring", stiffness: 300 }}
+              variants={itemVariants}
+            >
               <h3 className="text-2xl font-bold text-blue-600">$25</h3>
               <p className="text-gray-600 mt-2">Provides internet access for one student for a month</p>
-            </div>
-            <div className="impact-item bg-white rounded-lg shadow-md p-6 transform transition duration-500 hover:scale-105">
+            </motion.div>
+            <motion.div 
+              className="impact-item bg-white rounded-lg shadow-md p-6" 
+              whileHover={{ scale: 1.05 }} 
+              transition={{ type: "spring", stiffness: 300 }}
+              variants={itemVariants}
+            >
               <h3 className="text-2xl font-bold text-blue-600">$50</h3>
               <p className="text-gray-600 mt-2">Sponsors digital literacy training for one youth</p>
-            </div>
-            <div className="impact-item bg-white rounded-lg shadow-md p-6 transform transition duration-500 hover:scale-105">
+            </motion.div>
+            <motion.div 
+              className="impact-item bg-white rounded-lg shadow-md p-6" 
+              whileHover={{ scale: 1.05 }} 
+              transition={{ type: "spring", stiffness: 300 }}
+              variants={itemVariants}
+            >
               <h3 className="text-2xl font-bold text-blue-600">$100</h3>
               <p className="text-gray-600 mt-2">Provides a tablet for educational use at our hubs</p>
-            </div>
-            <div className="impact-item bg-white rounded-lg shadow-md p-6 transform transition duration-500 hover:scale-105">
+            </motion.div>
+            <motion.div 
+              className="impact-item bg-white rounded-lg shadow-md p-6" 
+              whileHover={{ scale: 1.05 }} 
+              transition={{ type: "spring", stiffness: 300 }}
+              variants={itemVariants}
+            >
               <h3 className="text-2xl font-bold text-blue-600">$500</h3>
               <p className="text-gray-600 mt-2">Sponsors a coding workshop for 20 students</p>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
