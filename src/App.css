@@ -1,4 +1,6 @@
 /* App.css */
+/* Add this to your HTML head: <meta name="viewport" content="width=device-width, initial-scale=1"> */
+
 :root {
   --primary-color: #3cb371; /* A light, clean green */
   --secondary-color: #87ceeb; /* A nice sky blue */
@@ -16,18 +18,22 @@
 * {
   margin: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
 }
 
 html {
   font-size: 16px;
   -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape */
+  text-size-adjust: 100%; /* Standard property */
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; /* Removed 'Inter' as fallback */
   color: var(--text-color);
   line-height: 1.6;
   overflow-x: hidden; /* Prevent horizontal scrolling */
+  -webkit-font-smoothing: antialiased; /* Improve font rendering */
+  -moz-osx-font-smoothing: grayscale; /* Improve font rendering */
 }
 
 .container {
@@ -92,7 +98,8 @@ body {
   justify-content: center;
 }
 
-.social-links a:hover {
+.social-links a:hover,
+.social-links a:focus {
   color: var(--primary-color);
 }
 
@@ -144,13 +151,20 @@ body {
   border: 1px solid #e5e7eb;
   box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
   overflow-x: auto; /* Allow horizontal scrolling on small devices */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
 .bank-details-table {
   border-collapse: separate;
   border-spacing: 0;
   width: 100%;
-  min-width: 500px; /* Minimum width to prevent squeezing */
+  min-width: 100%; /* Changed from 500px to prevent horizontal scroll */
+}
+
+@media (min-width: 640px) {
+  .bank-details-table {
+    min-width: 500px; /* Minimum width to prevent squeezing */
+  }
 }
 
 .bank-details-table tr {
@@ -164,6 +178,7 @@ body {
 .bank-details-table td {
   padding: 12px 16px;
   border-bottom: 1px solid #e5e7eb;
+  word-break: break-word; /* Prevent long text from breaking layout */
 }
 
 .bank-details-table td:first-child {
@@ -227,7 +242,8 @@ body {
   min-height: 36px; /* Minimum touch target */
 }
 
-.copy-btn:hover {
+.copy-btn:hover,
+.copy-btn:focus {
   background: #2563eb;
 }
 
@@ -472,14 +488,18 @@ body {
   font-size: 1rem;
   min-height: 44px; /* Minimum touch target */
   text-align: center;
+  border: none;
+  cursor: pointer;
 }
 
 .btn-outline {
   border: 2px solid #3498db;
   color: #3498db;
+  background: transparent;
 }
 
-.btn-outline:hover {
+.btn-outline:hover,
+.btn-outline:focus {
   background-color: #3498db;
   color: white;
 }
@@ -699,8 +719,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   background: var(--background-alt);
   color: var(--primary-color);
   border-radius: 50%;
@@ -717,7 +737,8 @@ body {
   }
 }
 
-.social-links a:hover {
+.social-links a:hover,
+.social-links a:focus {
   background: var(--primary-color);
   color: white;
   transform: translateY(-3px);
@@ -836,6 +857,8 @@ body {
   justify-content: center;
   gap: 0.5rem;
   min-height: 50px;
+  border: none;
+  cursor: pointer;
 }
 
 @media (min-width: 768px) {
@@ -939,7 +962,6 @@ body {
 @media (min-width: 640px) {
   .team-grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
   }
 }
 
@@ -1090,6 +1112,7 @@ body {
 .header-logo {
   height: 50px; /* Set a fixed height for the image */
   width: auto; /* Maintain the image's original aspect ratio */
+  max-width: 100%;
 }
 
 @media (min-width: 768px) {
@@ -1125,6 +1148,7 @@ body {
   list-style: none;
   gap: 15px;
   justify-content: center;
+  padding: 0;
 }
 
 @media (min-width: 768px) {
@@ -1142,16 +1166,21 @@ body {
   font-size: 0.95rem;
   padding: 8px 12px;
   display: block;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
 }
 
 @media (min-width: 768px) {
   .navigation a {
     font-size: 1rem;
     padding: 0;
+    min-height: auto;
   }
 }
 
-.navigation a:hover {
+.navigation a:hover,
+.navigation a:focus {
   color: var(--primary-color);
 }
 
@@ -1169,7 +1198,8 @@ body {
   align-items: center;
 }
 
-.donate-btn:hover {
+.donate-btn:hover,
+.donate-btn:focus {
   background-color: #1a8f89;
 }
 
@@ -1235,19 +1265,28 @@ body {
   justify-content: center;
 }
 
-.social-links a:hover {
+.social-links a:hover,
+.social-links a:focus {
   color: white;
 }
 
 /* Update this section to target links within the Quick Links list */
+.footer-section ul {
+  padding: 0;
+  list-style: none;
+}
+
 .footer-section ul a {
   color: #c0c0c0; /* Matches the color of the paragraph text */
   text-decoration: none;
   transition: color 0.3s ease;
+  display: block;
+  padding: 5px 0;
 }
 
 /* Add a hover effect for the Quick Links */
-.footer-section ul a:hover {
+.footer-section ul a:hover,
+.footer-section ul a:focus {
   color: white; /* Matches the hover color of the social links */
 }
 
@@ -1281,7 +1320,8 @@ body {
   color: white;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus {
   background-color: #32a265;
   transform: translateY(-2px);
 }
@@ -1291,7 +1331,8 @@ body {
   color: white;
 }
 
-.btn-secondary:hover {
+.btn-secondary:hover,
+.btn-secondary:focus {
   background-color: #72b9d9;
   transform: translateY(-2px);
 }
@@ -1302,7 +1343,8 @@ body {
   color: var(--primary-color);
 }
 
-.btn-outline:hover {
+.btn-outline:hover,
+.btn-outline:focus {
   background-color: var(--primary-color);
   color: white;
 }
@@ -2403,7 +2445,8 @@ body {
   font-size: 0.95rem;
 }
 
-.amount-buttons button:hover {
+.amount-buttons button:hover,
+.amount-buttons button:focus {
   border-color: var(--primary-color);
   color: var(--primary-color);
 }
@@ -2679,7 +2722,7 @@ input, select, textarea {
     font-size: 16px; /* Prevents zoom on iOS */
   }
 }
-/* Update the CSS for the .container in the .hero section */
+
 /* Update the CSS for the .container in the .hero section */
 .hero .container {
   display: flex;
@@ -2700,6 +2743,7 @@ input, select, textarea {
   max-width: 800px;
   width: 100%;
 }
+
 .hero {
   position: relative;
   background-size: cover;
@@ -2713,3 +2757,60 @@ input, select, textarea {
   text-align: center;
 }
 
+/* Focus styles for accessibility */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Reduced motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --primary-color: #006400;
+    --secondary-color: #0066cc;
+    --text-color: #000000;
+    --text-light: #444444;
+    --border-color: #000000;
+  }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #f0f8ff;
+    --text-light: #c0c0c0;
+    --background-color: #1a1a1a;
+    --background-alt: #2a2a2a;
+    --border-color: #444444;
+  }
+  
+  .contact-form-section,
+  .contact-card, 
+  .form-card, 
+  .map-card, 
+  .team-card,
+  .project-card,
+  .story-card,
+  .value-card,
+  .opportunity-card,
+  .event-item,
+  .team-member,
+  .campaign-card,
+  .donation-form {
+    background-color: #2a2a2a;
+    color: #f0f8ff;
+  }
+}
