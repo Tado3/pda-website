@@ -1239,6 +1239,18 @@ body {
   color: white;
 }
 
+/* Update this section to target links within the Quick Links list */
+.footer-section ul a {
+  color: #c0c0c0; /* Matches the color of the paragraph text */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Add a hover effect for the Quick Links */
+.footer-section ul a:hover {
+  color: white; /* Matches the hover color of the social links */
+}
+
 .footer-bottom {
   border-top: 1px solid #778899;
   padding-top: 20px;
@@ -2667,3 +2679,37 @@ input, select, textarea {
     font-size: 16px; /* Prevents zoom on iOS */
   }
 }
+/* Update the CSS for the .container in the .hero section */
+/* Update the CSS for the .container in the .hero section */
+.hero .container {
+  display: flex;
+  flex-direction: column; /* This is the key change: stack items vertically */
+  align-items: center; /* Center the items horizontally */
+  text-align: center; /* Center the text inside hero-content */
+  gap: 2rem; /* Add some space between the image and the text */
+}
+
+/* Ensure the hero content (text and buttons) comes second */
+.hero .hero-content {
+  order: 2;
+}
+
+/* Ensure the slideshow comes first */
+.hero .hero-image-slideshow {
+  order: 1;
+  max-width: 800px;
+  width: 100%;
+}
+.hero {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; /* Add this line */
+  min-height: 80vh; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+

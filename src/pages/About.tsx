@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import '../App.css';
 
 const About: React.FC = () => {
-  // Animation variants for the page
+  // Animation variants...
   const pageVariants = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
@@ -12,7 +12,6 @@ const About: React.FC = () => {
     transition: { duration: 0.5 }
   };
 
-  // Animation variants for the container (staggering children)
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -24,7 +23,6 @@ const About: React.FC = () => {
     },
   };
 
-  // Animation variants for individual items
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
@@ -68,7 +66,7 @@ const About: React.FC = () => {
                   <p>Our mission is to bridge the digital divide by establishing ICT Innovation Hubs in rural communities and enhancing the use of ICTs in evaluation, measurement, and education. We aim to equip the next generation with the necessary skills and knowledge to thrive in a digital world, thereby fostering inclusive growth and development.</p>
                 </div>
                 <div className="image-content">
-                  <img src="https://placehold.co/600x400/1e40af/ffffff?text=Mission" alt="Our Mission" />
+                  <img src="/image/lg123.png" alt="Progression Digital Ark Mission" />
                 </div>
               </div>
             </motion.section>
@@ -77,7 +75,7 @@ const About: React.FC = () => {
             <motion.section className="about-section alt" variants={itemVariants}>
               <div className="section-content">
                 <div className="image-content">
-                  <img src="https://placehold.co/600x400/7e22ce/ffffff?text=Vision" alt="Our Vision" />
+                  <img src="/image/lg123.png" alt="Progression Digital Ark Vision" />
                 </div>
                 <div className="text-content">
                   <h2>Our Vision</h2>

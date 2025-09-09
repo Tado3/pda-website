@@ -1,7 +1,7 @@
 // components/Footer.tsx
 import React from 'react';
-// Import icons from React Icons
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
@@ -11,6 +11,16 @@ const Footer: React.FC = () => {
           <div className="footer-section">
             <h3>Progression Digital Ark</h3>
             <p>Bridging the digital divide in rural Zimbabwe</p>
+          </div>
+          <div className="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/about">About</Link></li>
+              <li><Link to="/projects">Projects</Link></li>
+              <li><Link to="/contact">Contact</Link></li>
+              <li><Link to="/donate">Donate</Link></li>
+            </ul>
           </div>
           <div className="footer-section">
             <h4>Contact Us</h4>
