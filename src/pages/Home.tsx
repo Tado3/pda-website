@@ -56,6 +56,14 @@ const Home: React.FC = () => {
         </div>
       </motion.section>
 
+      {/* Brief Description Section */}
+      <section className="brief-description-section">
+        <div className="container">
+          <h2>A Digitally Inclusive Zimbabwe</h2>
+          <p>We believe that access to technology and digital skills can transform lives and build a brighter future for rural youth. Our initiatives focus on creating sustainable opportunities and fostering innovation in underserved communities across Zimbabwe.</p>
+        </div>
+      </section>
+
       {/* Impact Section */}
       <section className="impact-section">
         <div className="container">

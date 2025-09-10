@@ -2814,3 +2814,137 @@ textarea:focus {
     color: #f0f8ff;
   }
 }
+/* ========================================= */
+/* Brief Description Section */
+/* ========================================= */
+
+.brief-description-section {
+    background: linear-gradient(180deg, #f7fcf7 0%, #f0fff0 100%);
+    /* Use a relative unit for padding, making it proportional to the viewport height */
+    padding: 8vh 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.brief-description-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    /* Using percentage ensures the border scales with its container */
+    width: 95%;
+    height: 6px;
+    background: linear-gradient(90deg, #27ae60, #4CAF50);
+    border-radius: 3px;
+    box-shadow: 0 2px 10px rgba(39, 174, 96, 0.3);
+}
+
+.brief-description-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+.brief-description-section h2 {
+    /* Use 'rem' for a more flexible font size that scales with the root element */
+    font-size: 3rem;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.15);
+    position: relative;
+    display: inline-block;
+}
+
+.brief-description-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 6px;
+    background-color: #27ae60;
+    border-radius: 3px;
+}
+
+.brief-description-section p {
+    /* Use 'rem' for flexible font size */
+    font-size: 1.4rem;
+    color: #4CAF50;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+    font-weight: 600;
+    padding: 25px;
+    border-radius: 15px;
+    background-color: transparent;
+    transition: all 0.5s ease-in-out;
+    border: 1px solid rgba(34, 139, 34, 0.2);
+}
+
+.brief-description-section p:hover {
+    /* Add touch-friendly state using :active pseudo-class for mobile devices */
+    background: rgba(34, 139, 34, 0.08);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    animation: none; /* Disable complex animation on hover for better mobile performance */
+}
+
+/* Keyframes for the pulsing shadow effect, only applied on larger screens */
+@keyframes pulse-shadow {
+    0% {
+        box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+    50% {
+        box-shadow: 0 15px 45px rgba(34, 139, 34, 0.3);
+    }
+    100% {
+        box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+}
+
+/* ========================================= */
+/* Mobile-Specific Styles (Media Query) */
+/* ========================================= */
+
+@media (max-width: 768px) {
+    .brief-description-section {
+        /* Reduce padding for smaller screens */
+        padding: 6vh 0;
+    }
+
+    .brief-description-section h2 {
+        /* Decrease font size on mobile */
+        font-size: 2.2rem;
+        letter-spacing: -1px;
+    }
+
+    .brief-description-section p {
+        /* Decrease paragraph font size on mobile */
+        font-size: 1.2rem;
+        padding: 20px;
+    }
+
+    .brief-description-section h2::after {
+        /* Reduce the width of the line under the heading */
+        width: 80px;
+    }
+
+    /* Disable hover effects for touch devices to prevent erratic behavior */
+    .brief-description-section p:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    /* Remove the animation for touch devices for better performance */
+    .brief-description-section p {
+        animation: none;
+    }
+}
