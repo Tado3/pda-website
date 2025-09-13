@@ -42,14 +42,15 @@ const About: React.FC = () => {
         exit="exit"
       >
         <div className="container">
+          {/* This is the section you want the background image on */}
           <motion.div
             className="page-header"
             variants={itemVariants}
             initial="hidden"
             animate="visible"
           >
-            <h1>About Progression Digital Ark</h1>
-            <p>Learn about our mission, vision, and values</p>
+             <h1 className="text-white">About Progression Digital Ark</h1>
+            
           </motion.div>
 
           <motion.div

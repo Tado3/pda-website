@@ -1,19 +1,49 @@
 /* App.css */
 /* Add this to your HTML head: <meta name="viewport" content="width=device-width, initial-scale=1"> */
-
 :root {
-  --primary-color: #3cb371; /* A light, clean green */
-  --secondary-color: #87ceeb; /* A nice sky blue */
-  --accent-color: #20b2aa; /* A complementary sea green */
-  --text-color: #2f4f4f; /* A dark slate grey for contrast */
-  --text-light: #778899; /* Light grey for secondary text */
-  --background-color: #f0f8ff; /* A soft, off-white blue */
-  --background-alt: #e0f2f1; /* A very light green for alt sections */
-  --border-color: #b0c4de; /* A subtle blue-grey border */
+  --primary-color: #2ecc71; /* A vibrant green */
+  --secondary-color: #3498db; /* A classic light blue */
+  --accent-color: #27ae60; /* A darker green for accents */
+  --text-color: #2c3e50; /* Dark blue-grey for text */
+  --text-light: #7f8c8d; /* Light grey-blue for secondary text */
+  --background-color: #ecf0f1; /* Very light blue background */
+  --nav-background-color: #ffffff; /* White nav bar with blue elements */
+  --background-alt: #d6eaf8; /* Light blue for alt sections */
+  --border-color: #bdc3c7; /* Light grey-blue border */
   --mobile-breakpoint: 768px;
   --tablet-breakpoint: 1024px;
 }
 
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.nav-bar {
+  background-color: var(--nav-background-color);
+  border-bottom: 2px solid var(--secondary-color);
+}
+
+/* Optional: Add some additional styling for better visual hierarchy */
+.nav-bar a {
+  color: var(--secondary-color);
+}
+
+.nav-bar a:hover {
+  color: var(--primary-color);
+}
+
+.button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+}
+
+.button-secondary {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+}
 /* Base styles */
 * {
   margin: 0;
@@ -2947,4 +2977,48 @@ textarea:focus {
     .brief-description-section p {
         animation: none;
     }
+}
+
+.page-header {
+  height: 50vh;
+  width: 100%;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+  padding: 20px;
+
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/image/abt.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+
+.page-header h1 {
+  font-size: 2.5rem; /* You can also adjust the heading size for better hierarchy */
+}
+
+.page-header p {
+  color: lightblue;
+  font-size: 1.2rem; /* Increased font size for the light blue text */
+  margin-top: 10px; /* Add some space between the heading and the paragraph */
+}
+
+/* More specific selector to override existing styles */
+.page-header .relative.z-10 {
+  color: white !important;
+}
+
+.page-header h1.relative.z-10 {
+  color: white !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Force white text on all elements within page-header */
+.page-header * {
+  color: white !important;
 }

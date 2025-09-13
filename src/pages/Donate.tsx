@@ -43,13 +43,30 @@ const Donate: React.FC = () => {
     >
       <div className="container max-w-7xl mx-auto space-y-12">
         <motion.div
-          className="page-header text-center space-y-4"
+          className="page-header text-center space-y-4 relative overflow-hidden rounded-lg"
           variants={itemVariants}
           initial="hidden"
           animate="visible"
+          style={{
+            backgroundImage: `url('/image/donate3.png')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            minHeight: '300px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: '2rem'
+          }}
         >
-          <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl">Support Our Mission</h1>
-          <p className="text-lg text-gray-600 sm:text-xl md:text-2xl">Your donation helps bridge the digital divide in rural Zimbabwe</p>
+          {/* Overlay for better text contrast */}
+          <div className="absolute inset-0 bg-black opacity-40 rounded-lg"></div>
+          {/* Text content, ensuring it's above the overlay */}
+          <h1 className="relative z-10 text-4xl font-extrabold text-white sm:text-5xl md:text-6xl text-shadow-lg">
+      Support Our Mission
+    </h1>
+          
         </motion.div>
         
         <motion.div

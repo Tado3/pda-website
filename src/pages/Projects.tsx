@@ -1,10 +1,6 @@
-// pages/Projects.tsx
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import '../App.css';
-
-// Import your images from the correct directory
-
 
 // Define the type for a single project
 interface Project {
@@ -55,7 +51,6 @@ const projectsData: Project[] = [
     ],
     extraInfo: 'Past winners have developed apps for agricultural market access, educational platforms, and healthcare information systems.',
     image: '../image/yic.png'
-
   },
 ];
 
@@ -100,15 +95,29 @@ const Projects: React.FC = () => {
         <div className="container">
           {/* Page Header Section */}
           <motion.header
-            className="page-header"
+            className="page-header relative overflow-hidden rounded-lg"
             variants={itemVariants}
             initial="hidden"
             animate="visible"
+            style={{
+              backgroundImage: `url('/image/projects.png')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              minHeight: '300px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              padding: '2rem'
+            }}
           >
-            <h1>Our Projects & Programs</h1>
-            <p>Discover how we're making a difference in rural communities</p>
+            {/* Overlay for better text contrast */}
+            <div className="absolute inset-0 bg-black opacity-40 rounded-lg"></div>
+            {/* Text content, ensuring it's above the overlay */}
+            
           </motion.header>
-          
+
           <motion.div
             className="main-content-wrapper"
             variants={containerVariants}
@@ -154,8 +163,8 @@ const Projects: React.FC = () => {
                 <motion.div className="opportunity-card" variants={itemVariants}>
                   <h3>Volunteer Programs</h3>
                   <p>Youth can volunteer at our ICT hubs as teaching assistants, tech support, or community ambassadors. Gain valuable experience while giving back to your community.</p>
-                  <motion.a 
-                    href="#" 
+                  <motion.a
+                    href="#"
                     className="btn btn-outline"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -166,8 +175,8 @@ const Projects: React.FC = () => {
                 <motion.div className="opportunity-card" variants={itemVariants}>
                   <h3>Internship Opportunities</h3>
                   <p>We offer internships in program coordination, digital content creation, and community outreach. Perfect for students and recent graduates.</p>
-                  <motion.a 
-                    href="#" 
+                  <motion.a
+                    href="#"
                     className="btn btn-outline"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -178,8 +187,8 @@ const Projects: React.FC = () => {
                 <motion.div className="opportunity-card" variants={itemVariants}>
                   <h3>Youth Advisory Board</h3>
                   <p>Join our youth advisory board to help shape our programs and ensure they meet the needs of young people in rural communities.</p>
-                  <motion.a 
-                    href="#" 
+                  <motion.a
+                    href="#"
                     className="btn btn-outline"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -190,8 +199,8 @@ const Projects: React.FC = () => {
                 <motion.div className="opportunity-card" variants={itemVariants}>
                   <h3>Digital Champions</h3>
                   <p>Become a digital champion in your community by helping others learn digital skills and promoting the use of technology for development.</p>
-                  <motion.a 
-                    href="#" 
+                  <motion.a
+                    href="#"
                     className="btn btn-outline"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
